@@ -1609,6 +1609,7 @@
       </categories>
       <tags>
         <tag>自由</tag>
+        <tag>哲学</tag>
       </tags>
   </entry>
   <entry>
@@ -1864,6 +1865,10 @@
       <categories>
         <category>乱侃乱乏</category>
       </categories>
+      <tags>
+        <tag>历史</tag>
+        <tag>哲学</tag>
+      </tags>
   </entry>
   <entry>
     <title>不服周-11-1刊</title>
@@ -3398,13 +3403,13 @@
       </tags>
   </entry>
   <entry>
-    <title>categories</title>
-    <url>/categories/index.html</url>
+    <title>tags</title>
+    <url>/tags/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>tags</title>
-    <url>/tags/index.html</url>
+    <title>categories</title>
+    <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
 </search>
