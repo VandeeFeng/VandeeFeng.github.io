@@ -253,7 +253,7 @@
     key: '8254bdfb85f8b4103806',
     // 文章推荐方式，all：匹配数据库内所有文章进行推荐，web：仅当前站内的文章，默认all
     rec_method: 'web',
-    i interface: {
+    interface: {
     name: "Vandee-AI", // AI名称
     version: "GPT-4", // 右上角GPT版本文字
     button: ["推荐相关文章"], // 四个按钮文本
@@ -265,7 +265,6 @@
     pjax: true,
     total_length: 1500,
     auto_mount: true,
-   
   })
 </script>
 
