@@ -266,13 +266,7 @@
     auto_mount: true,
     summary_speech: false,
     summary_toggle: false,
-    css: `#post-ai .ai-btn-box{
-  font-size: 15.5px;
-  width: 100%;
-  display: none;
-  flex-direction: row;
-  flex-wrap: wrap;
-}`,
+    additional_css: `#post-ai .ai-btn-box{display: none!important;}`,
   })
 </script>
 
@@ -713,6 +707,7 @@
     auto_mount: true,
     summary_speech: false,
     summary_toggle: false,
+    additional_css: `#post-ai .ai-btn-box{display: none!important;}`,
   })
 </script>
 ]]></content>
@@ -6209,12 +6204,12 @@
   </entry>
   <entry>
     <title></title>
-    <url>/tags/index.html</url>
+    <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title></title>
-    <url>/categories/index.html</url>
+    <url>/tags/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
 </search>
