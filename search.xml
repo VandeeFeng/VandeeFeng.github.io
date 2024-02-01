@@ -267,6 +267,7 @@
     summary_speech: false,
     summary_toggle: false,
     additional_css: `#post-ai .ai-btn-box{display: none!important;}`,
+    speed: 40,
   })
 </script>
 
@@ -708,6 +709,7 @@
     summary_speech: false,
     summary_toggle: false,
     additional_css: `#post-ai .ai-btn-box{display: none!important;}`,
+    speed: 40,
   })
 </script>
 ]]></content>
@@ -6204,12 +6206,12 @@
   </entry>
   <entry>
     <title></title>
-    <url>/categories/index.html</url>
+    <url>/tags/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title></title>
-    <url>/tags/index.html</url>
+    <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
 </search>
