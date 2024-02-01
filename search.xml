@@ -264,7 +264,7 @@
     hide_shuttle: true,
     pjax: true,
     total_length: 1000,
-    ratio_string: "2:5:3",
+    ratio_string: "3:4:3",
     auto_mount: true,
     summary_speech: false,
     summary_toggle: false,
@@ -652,7 +652,7 @@
     hide_shuttle: true,
     pjax: true,
     total_length: 1000,
-    ratio_string: "2:5:3",
+    ratio_string: "3:4:3",
     auto_mount: true,
     summary_speech: false,
     summary_toggle: false,
@@ -757,7 +757,7 @@
     hide_shuttle: true,
     pjax: true,
     total_length: 1000,
-    ratio_string: "2:5:3",
+    ratio_string: "3:4:3",
     auto_mount: true,
     summary_speech: false,
     summary_toggle: false,
@@ -6259,12 +6259,12 @@
   </entry>
   <entry>
     <title></title>
-    <url>/tags/index.html</url>
+    <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title></title>
-    <url>/categories/index.html</url>
+    <url>/tags/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
 </search>
