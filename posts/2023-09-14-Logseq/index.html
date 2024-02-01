@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.vandee.art","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.17.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="而ob本身就可以看做是一个Logseq的库和inbox来使用，反过来Logseq也可以包含在ob的文件夹系统里。这完全取决于自身的需求。现在基本上把ob当做一个大的inbox和Markdown文件管理编辑系统，Logseq来做长青笔记和日志。Read Later用Omnivore，剪藏网页，可以自动导入Logseq和ob，roma-highlighter浏览器插件做高亮剪藏。Zotero来阅读PD">
+<meta property="og:type" content="article">
+<meta property="og:title" content="obsidian和logseq联用的PKM尝试">
+<meta property="og:url" content="https://www.vandee.art/posts/2023-09-14-Logseq/">
+<meta property="og:site_name" content="梵低&#39;s Blog">
+<meta property="og:description" content="而ob本身就可以看做是一个Logseq的库和inbox来使用，反过来Logseq也可以包含在ob的文件夹系统里。这完全取决于自身的需求。现在基本上把ob当做一个大的inbox和Markdown文件管理编辑系统，Logseq来做长青笔记和日志。Read Later用Omnivore，剪藏网页，可以自动导入Logseq和ob，roma-highlighter浏览器插件做高亮剪藏。Zotero来阅读PD">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2023/09/14/cTE5j8ZIvgmBWPq.png">
+<meta property="og:image" content="https://s2.loli.net/2023/09/14/MQFB7tDeTP4q3EZ.png">
+<meta property="og:image" content="https://s2.loli.net/2023/09/14/K5bXn8ScmsA1zae.png">
+<meta property="og:image" content="https://s2.loli.net/2023/09/14/Wi2j9kcxowPROdS.png">
+<meta property="og:image" content="https://s2.loli.net/2023/09/14/6oFO18HzRmrnfIP.png">
+<meta property="og:image" content="https://s2.loli.net/2023/09/14/mIVKYiktvLUEZx6.png">
+<meta property="og:image" content="https://s2.loli.net/2023/09/14/9R5H1dnzyJZG4vb.png">
+<meta property="og:image" content="https://s2.loli.net/2023/09/14/j8rpzPA1LyeQdhu.png">
+<meta property="og:image" content="https://s2.loli.net/2023/09/14/ZfRbBc67JV3KaTQ.png">
+<meta property="article:published_time" content="2023-09-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-12-15T05:10:52.057Z">
+<meta property="article:author" content="Vandee">
+<meta property="article:tag" content="PKM">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2023/09/14/cTE5j8ZIvgmBWPq.png">
+
+
+<link rel="canonical" href="https://www.vandee.art/posts/2023-09-14-Logseq/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.vandee.art/posts/2023-09-14-Logseq/","path":"posts/2023-09-14-Logseq/","title":"obsidian和logseq联用的PKM尝试"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>obsidian和logseq联用的PKM尝试 | 梵低's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="梵低's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">梵低's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Logseq"><span class="nav-text">Logseq</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ob%E5%92%8CLogseq%E7%9A%84%E7%AE%80%E5%8D%95%E5%AF%B9%E6%AF%94"><span class="nav-text">ob和Logseq的简单对比</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%8E%B0%E5%9C%A8%E7%9A%84%E9%80%89%E6%8B%A9"><span class="nav-text">现在的选择</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E6%88%AA%E5%9B%BE"><span class="nav-text">一些截图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Vandee"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Vandee</p>
+  <div class="site-description" itemprop="description">梵低光影，留住你的故事</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/VandeeFeng" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;VandeeFeng" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:379129052@qq.com" title="E-Mail → mailto:379129052@qq.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://500px.com.cn/vandee" title="500px → https:&#x2F;&#x2F;500px.com.cn&#x2F;vandee" rel="noopener me" target="_blank"><i class="fa fa-camera-retro fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/Vandee_Feng" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;Vandee_Feng" rel="noopener me" target="_blank"><i class="fab fa-twitter fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/vandee.feng?igshid=YmMyMTA2M2Y=" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;vandee.feng?igshid&#x3D;YmMyMTA2M2Y&#x3D;" rel="noopener me" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+  </div>
+
+  <div class="links-of-recent-posts motion-element">
+    <div class="links-of-recent-posts-title">
+      <i class="fa fa-history fa-fw"></i>
+      近期文章
+    </div>
+    <ul class="links-of-recent-posts-list">
+        <li class="links-of-recent-posts-item">
+          <a href="/posts/2024-01-27-Carrot-and-Donkey/" title="posts&#x2F;2024-01-27-Carrot-and-Donkey&#x2F;">胡萝卜和驴</a>
+        </li>
+        <li class="links-of-recent-posts-item">
+          <a href="/posts/2024-01-24-bu-fu-zhou-1-1-2024/" title="posts&#x2F;2024-01-24-bu-fu-zhou-1-1-2024&#x2F;">不服周-1-1刊-2024</a>
+        </li>
+        <li class="links-of-recent-posts-item">
+          <a href="/posts/2024-01-12-ju-wai-ren/" title="posts&#x2F;2024-01-12-ju-wai-ren&#x2F;">局外人</a>
+        </li>
+        <li class="links-of-recent-posts-item">
+          <a href="/posts/2023-12-26-summary-of-2023/" title="posts&#x2F;2023-12-26-summary-of-2023&#x2F;">似水流年</a>
+        </li>
+        <li class="links-of-recent-posts-item">
+          <a href="/posts/2023-12-06-learn-all-the-time/" title="posts&#x2F;2023-12-06-learn-all-the-time&#x2F;">Learn All The Time</a>
+        </li>
+    </ul>
+  </div>
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相关文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/posts/2023-09-18-read-or-listen/" rel="bookmark">
+        <time class="popular-posts-time">2023-09-18</time>
+        <br>
+      读或听或看？
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.vandee.art/posts/2023-09-14-Logseq/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vandee">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="梵低's Blog">
+      <meta itemprop="description" content="梵低光影，留住你的故事">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="obsidian和logseq联用的PKM尝试 | 梵低's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          obsidian和logseq联用的PKM尝试
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-09-14 00:00:00" itemprop="dateCreated datePublished" datetime="2023-09-14T00:00:00+08:00">2023-09-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B9%B1%E4%BE%83%E4%B9%B1%E4%B9%8F/" itemprop="url" rel="index"><span itemprop="name">乱侃乱乏</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>距上一次<a href="https://www.vandee.art/posts/2023-07-19-undefined/">又一次知识管理逻辑的完善 </a>，不知不觉已经两个月了。</p>
+<p>在“深入”使用obsidian(后面简称ob)这两个月期间，一个之前暂时搁置的问题逐渐浮现出来：</p>
+<p>那就是数据储存形式。也正好看到了这篇文章<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/wWez_Ijq_Dukr-rch4P24g">Heptabase，如果笔记工具公司倒闭了，你的笔记还能接着用吗？</a></p>
+<p>从易用性和数据呈现来看，很显然它是，从保存数据和数据结构的角度来看，markdown不是一个很优秀的格式。当然这是当数据到达一个相当的量级才需要考虑的事。</p>
+<p>于是，开始了解Logseq。</p>
+<p>没有最好的笔记软件，适合自己的才是最好的。</p>
+<h1 id="Logseq"><a href="#Logseq" class="headerlink" title="Logseq"></a>Logseq</h1><p>第一次打开Logseq就被UI的设计吸引，这是一种美学上的天然的吸引。和第一次打开Typora的感觉很像。</p>
+<p><a target="_blank" rel="noopener" href="https://bytetalk.fm/posts/episode-7">跟 Logseq 的创造者天生聊聊 Logseq 的故事</a>里介绍到</p>
+<blockquote>
+<p>Logseq是开源的，由Clojure &#x2F; ClojureScript开发。dataScript 库，函数式语言在数据操作方面会有些优势 ，可以写出很丰富的 query。 </p>
+</blockquote>
+<p>要知道，鼎鼎大名的Roam Research也是基于Clojure开发。</p>
+<p>Roam Research为什么如此受追捧，除了双链和block之外，我觉得它的Query和数据结构才是重点，并且它</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://sspai.com/post/60787">Roam Research 到底好在哪儿？ - 少数派 (sspai.com)</a></p>
+<ul>
+<li>第三，协作性。Conor 的野心，是让每一个学生<strong>不需要通过</strong>高质量的学校教育，就能自行从 Roam Research 组建的全社会协作知识网络中，学会任何自己想学会的知识和技能，并且能够更容易探索与创造知识。</li>
+<li>第四，激励性。为了促进人们生产和分享知识，Roam Research 想方设法降低知识采集和生产的成本，激发人们的创造、分享和协作行为。</li>
+</ul>
+</blockquote>
+<p>Logseq的开发者<a target="_blank" rel="noopener" href="https://twitter.com/tiensonqin">秦天生</a>也说到，想做一个 GitHub 和 Wikipedia 的 2.0 版本。从开发到理念，可以说和Roam Research殊路同归。</p>
+<p>在这一点上，Logseq发展的很完美。</p>
+<p>而这几点，同样是我想做PKM，或者说，对知识本身的理解和态度。</p>
+<p><strong>知识是上帝给人类的财富，它就应该是开源的。</strong></p>
+<p>因此，和ob相比，这种设计开发理念，更吸引我。</p>
+<h1 id="ob和Logseq的简单对比"><a href="#ob和Logseq的简单对比" class="headerlink" title="ob和Logseq的简单对比"></a>ob和Logseq的简单对比</h1><p>我认为obsidian的生命力来源于社区和插件，</p>
+<p>与其说用ob不如说是再用它的插件，ob开放了插件API，让爱好者自由发挥。</p>
+<p>ob更像是一个全能的高达，身上装备者各种插件盔甲和武器，你可以根据自己的Project、GTD、PKM，</p>
+<p>制定出个性化很高的管理系统。 <strong>插件是ob很大的一个优势。</strong></p>
+<p><strong>ob和Logseq的对比：</strong></p>
+<p>obsidian：</p>
+<ul>
+<li>page为单位，你的每一篇笔记就是一个markdown文档，通过双链链接起来。当然ob也有块的概念，<br>但和Logseq可展开的块不一样，ob的块是文字的每一行，可以通过<code>^</code>来标记和检索。</li>
+<li>有文件夹系统，习惯文件夹管理的，这是ob的很大优势。</li>
+<li>除了ob自带的搜索功能，数据呈现和检索其实主要依靠dataview插件，而这个不是数据结构层面的。<br>Logseq的dataScript库在数据结构上优势更大。</li>
+<li>可以通过<strong>TagFolder</strong>、<strong>Tag Summary</strong>等插件自己制作标签页，标签管理方面自由度也很高。3</li>
+<li>ob的多端同步很方便，这依赖于<strong>Remotely Save</strong> 这个插件。</li>
+<li>和Zotero的联动依靠插件来导入高亮和笔记。</li>
+</ul>
+<p>Logseq：</p>
+<ul>
+<li>块为最小单位,使得它的颗粒可以很小，每一个block都可以展开并且关联和查询。这是和ob以page为单位，很不一样的地方。</li>
+<li>每一个tag会自动生成标签页，这样很方便做 Tag_Pages，和moc。这样就可以通过标签页来链接block。它的标签可以看做一个特殊的块，也就是标签的moc。</li>
+<li>它没有文件夹，因此moc很重要，类似的它提供了一个专门的Contents页面，相当于文件夹管理。</li>
+<li>日志系统和todo系统很完善。logseq自带日志，它就是一个log。Logseq的理念应该是用日志来串联，而不是<br>把分类的经历消耗在文件夹的分类。当然如何选择是自己的事，我们一样可以手动用文件夹分类储存管理。</li>
+<li>Outline大纲模式，在markdown里，每一个block就是一个无序列表格式。</li>
+<li>Logseq的同步相对麻烦，得git和Working Copy结合起来。</li>
+<li>可以直接接入Zotero的API，这很方便。</li>
+</ul>
+<p>总体来说，ob<strong>很大</strong>，Logseq<strong>更小</strong>。ob处理大量文字也不会卡，而在Logseq一个块如果包含太多文字会报错无法编辑。Logseq自带的日志系统很好用，开箱即写，用outline提炼出更精简的文字来做思维的串联。</p>
+<h1 id="现在的选择"><a href="#现在的选择" class="headerlink" title="现在的选择"></a>现在的选择</h1><p><strong>做电子笔记，实际上是在做数据储存和数据处理。</strong></p>
+<p>数据编辑的易用性，和数据检索、数据结构之间的取舍很关键。</p>
+<p>从这个角度出发，可能随着时间偏移，重心会偏向Logseq和数据结构方面。</p>
+<p>而ob本身就可以看做是一个Logseq的库和inbox来使用，反过来Logseq也可以包含在ob的文件夹系统里。</p>
+<p>这完全取决于自身的需求。</p>
+<p>现在基本上把ob当做一个大的inbox和Markdown文件管理编辑系统，Logseq来做长青笔记和日志。</p>
+<p>Read Later用Omnivore，剪藏网页，可以自动导入Logseq和ob，</p>
+<p>roma-highlighter浏览器插件做高亮剪藏。</p>
+<p>Zotero来阅读PDF和文献，Logseq和ob也是无缝衔接。</p>
+<p>这里要强烈推荐Omnivore，和一年六七百的Readwise相比，基本功能都有，但它是开源和免费的。</p>
+<p>最后，几个原则，也是提醒自己：</p>
+<ul>
+<li>做笔记是方法，不是目的。</li>
+<li>信息很容易被误认为是知识，而做笔记不是汇总信息，是提炼思维，汇总元知识。</li>
+</ul>
+<p>没有最好的笔记软件，只有最适合自己的笔记软件。</p>
+<h1 id="一些截图"><a href="#一些截图" class="headerlink" title="一些截图"></a>一些截图</h1><img data-src="https://s2.loli.net/2023/09/14/cTE5j8ZIvgmBWPq.png" alt="Snipaste_2023-09-14_11-26-08.png" style="zoom:25%;" />
+
+<img data-src="https://s2.loli.net/2023/09/14/MQFB7tDeTP4q3EZ.png" alt="Snipaste_2023-09-14_11-25-20.png" style="zoom:25%;" />
+
+<img data-src="https://s2.loli.net/2023/09/14/K5bXn8ScmsA1zae.png" alt="Snipaste_2023-09-14_11-21-07.png" style="zoom:25%;" />
+
+<img data-src="https://s2.loli.net/2023/09/14/Wi2j9kcxowPROdS.png" alt="Snipaste_2023-09-14_11-20-36.png" style="zoom:25%;" />
+
+<img data-src="https://s2.loli.net/2023/09/14/6oFO18HzRmrnfIP.png" alt="Snipaste_2023-09-14_11-18-09.png" style="zoom:25%;" />
+
+<img data-src="https://s2.loli.net/2023/09/14/mIVKYiktvLUEZx6.png" alt="Snipaste_2023-09-14_11-27-27.png" style="zoom:25%;" />
+
+<img data-src="https://s2.loli.net/2023/09/14/9R5H1dnzyJZG4vb.png" alt="Snipaste_2023-09-14_12-39-50.png" style="zoom:25%;" />
+
+<img data-src="https://s2.loli.net/2023/09/14/j8rpzPA1LyeQdhu.png" alt="Snipaste_2023-09-14_11-16-39.png" style="zoom:25%;" />
+
+
+
+<img data-src="https://s2.loli.net/2023/09/14/ZfRbBc67JV3KaTQ.png" alt="Snipaste_2023-09-14_11-26-48.png" style="zoom:25%;" />
+
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://sspai.com/post/82793">Obsidian技巧：通过多个标签快速定位文件(by TagFolder) - 少数派 (sspai.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/wWez_Ijq_Dukr-rch4P24g">Heptabase，如果笔记工具公司倒闭了，你的笔记还能接着用吗？</a></li>
+<li><a target="_blank" rel="noopener" href="https://sspai.com/post/60787">Roam Research 到底好在哪儿？ - 少数派 (sspai.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://bytetalk.fm/posts/episode-7">跟 Logseq 的创造者天生聊聊 Logseq 的故事</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1vM4y1h7H4/?p=44&spm_id_from=pageDriver">Obsidian中的标签，到底该如何使用？（第三集 设计你的标签页）_哔哩哔哩_bilibili</a>  </li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1bP411H7rx/?spm_id_from=333.999.0.0&vd_source=92184533e359726f138fee9650261f0f">Obsidian的全局引用你用对了吗？Johnny学Obsidian_哔哩哔哩_bilibili</a>  </li>
+<li><a target="_blank" rel="noopener" href="https://pkmer.cn/">PKMer</a></li>
+<li><a target="_blank" rel="noopener" href="https://sspai.com/post/80042#!">双剑合璧：Obsidian和Logseq联用的一些经验 - 少数派 (sspai.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1pm4y1A79c/?p=3&vd_source=92184533e359726f138fee9650261f0f">03 ios终端(手机和平板)的logseq同步设置_哔哩哔哩_bilibili</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>欢迎访问我的其他频道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://500px.com.cn/vandee">
+            <span class="icon">
+              <i class="fa fa-camera-retro"></i>
+            </span>
+
+            <span class="label">500px</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://instagram.com/vandee.feng?igshid=YmMyMTA2M2Y=">
+            <span class="icon">
+              <i class="fab fa-instagram"></i>
+            </span>
+
+            <span class="label">Instagram</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/PKM/" rel="tag"><i class="fa fa-tag"></i> PKM</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/2023-08-22-undefined/" rel="prev" title="镜花水月">
+                  <i class="fa fa-chevron-left"></i> 镜花水月
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/2023-09-18-read-or-listen/" rel="next" title="读或听或看？">
+                  读或听或看？ <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2022 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class=""></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">梵低光影. All Rights Reserved.  <br /> 更多精彩:『<a href="https://vandee.zhubai.love" target="_blank">梵低光影专栏</a>』 | 『<a href="https://500px.com.cn/vandee" target="_blank">梵低摄影集</a>』</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
